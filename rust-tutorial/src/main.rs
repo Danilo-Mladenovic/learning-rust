@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", make_upper_case("abracadabra"));
+    println!("{}", abbrev_name("Danilo Mladenovic"));
 }
 
 // Codewars Kata's for leaning rust.
@@ -12,4 +12,16 @@ fn remove_char(s: &str) -> String {
 // Convert the input string to uppercase.
 fn make_upper_case(s: &str) -> String {
     s.to_uppercase()
+}
+
+// Convert a name into initials.
+fn abbrev_name(name: &str) -> String {
+    let mut splits = name.split(' ');
+    let mut initials = String::new();
+
+    initials.push_str(&splits.next().unwrap()[..1].to_uppercase());
+    initials.push('.');
+    initials.push_str(&splits.next().unwrap()[..1].to_uppercase());
+
+    initials
 }
