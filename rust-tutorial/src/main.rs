@@ -1,24 +1,10 @@
-#[derive(Debug)]
-struct User {
-    username: String,
-    email: String,
-    sign_in_count: u64,
-    active: bool,
-}
-
-impl User {
-    fn new(username: String) -> Self {
-        Self {
-            username,
-            email: String::from("placeholder@gmail.com"),
-            sign_in_count: 1,
-            active: true,
-        }
-    }
-}
-
 fn main() {
-    let user = User::new(String::from("daki"));
+    println!("{}", remove_char("abracadabra"));
+}
 
-    println!("{:#?}", user);
+// Codewars Kata's for leaning rust.
+//
+// Remove First and Last Character
+pub fn remove_char(s: &str) -> String {
+    s[1..s.len() - 1].to_string()
 }
