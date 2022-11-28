@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", summation(8));
+    println!("{}", past(1, 1, 1));
 }
 
 // Codewars Kata's for leaning rust.
@@ -40,4 +40,9 @@ fn summation(n: i32) -> i32 {
         sum += i;
     }
     sum
+}
+
+// Miliseconds past since midnight.
+fn past(h: i32, m: i32, s: i32) -> i32 {
+    s * 1000 + m * 60_000 + h * 3_600_000
 }
