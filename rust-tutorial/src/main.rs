@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", number_to_string(1234));
+    println!("{}", summation(8));
 }
 
 // Codewars Kata's for leaning rust.
@@ -29,4 +29,15 @@ fn abbrev_name(name: &str) -> String {
 // Transform a number into a string.
 fn number_to_string(i: i32) -> String {
     i.to_string()
+}
+
+// Summation of numbers until n.
+// n * (n + 1) / 2 is best solution.
+fn summation(n: i32) -> i32 {
+    let mut sum: i32 = 0;
+
+    for i in 1..=n {
+        sum += i;
+    }
+    sum
 }
