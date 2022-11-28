@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", abbrev_name("Danilo Mladenovic"));
+    println!("{}", number_to_string(1234));
 }
 
 // Codewars Kata's for leaning rust.
@@ -24,4 +24,9 @@ fn abbrev_name(name: &str) -> String {
     initials.push_str(&splits.next().unwrap()[..1].to_uppercase());
 
     initials
+}
+
+// Transform a number into a string.
+fn number_to_string(i: i32) -> String {
+    i.to_string()
 }
