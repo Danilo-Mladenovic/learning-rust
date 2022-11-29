@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", past(1, 1, 1));
+    println!("{}", cockroach_speed(1.08));
 }
 
 // Codewars Kata's for leaning rust.
@@ -45,4 +45,9 @@ fn summation(n: i32) -> i32 {
 // Miliseconds past since midnight.
 fn past(h: i32, m: i32, s: i32) -> i32 {
     s * 1000 + m * 60_000 + h * 3_600_000
+}
+
+// Transfer speed from km/h to cm/s
+fn cockroach_speed(s: f64) -> i64 {
+    (s * 27.78) as i64
 }
