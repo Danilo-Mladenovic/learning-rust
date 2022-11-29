@@ -1,7 +1,7 @@
 use std::fmt::format;
 
 fn main() {
-    println!("{}", greet("Danilo"));
+    println!("{}", check_for_factor(9, 2));
 }
 
 // Codewars Kata's for leaning rust.
@@ -62,4 +62,9 @@ fn grow(nums: Vec<i32>) -> i32 {
 // Return formated string.
 fn greet(name: &str) -> String {
     format!("Hello, {} how are you doing today?", name)
+}
+
+// Test if the factor is a factor of base.
+fn check_for_factor(base: i32, factor: i32) -> bool {
+    base % factor == 0
 }
