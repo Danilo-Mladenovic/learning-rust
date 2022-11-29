@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", cockroach_speed(1.08));
+    println!("{}", grow(vec![1, 2, 3, 4]));
 }
 
 // Codewars Kata's for leaning rust.
@@ -50,4 +50,9 @@ fn past(h: i32, m: i32, s: i32) -> i32 {
 // Transfer speed from km/h to cm/s
 fn cockroach_speed(s: f64) -> i64 {
     (s * 27.78) as i64
+}
+
+// Return product of array members.
+fn grow(nums: Vec<i32>) -> i32 {
+    nums.iter().product()
 }
