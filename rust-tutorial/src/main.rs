@@ -1,5 +1,7 @@
+use std::fmt::format;
+
 fn main() {
-    println!("{}", grow(vec![1, 2, 3, 4]));
+    println!("{}", greet("Danilo"));
 }
 
 // Codewars Kata's for leaning rust.
@@ -55,4 +57,9 @@ fn cockroach_speed(s: f64) -> i64 {
 // Return product of array members.
 fn grow(nums: Vec<i32>) -> i32 {
     nums.iter().product()
+}
+
+// Return formated string.
+fn greet(name: &str) -> String {
+    format!("Hello, {} how are you doing today?", name)
 }
