@@ -2,11 +2,26 @@ use std::collections::HashMap;
 use std::{fmt::format, ops::Add};
 
 fn main() {
-    println!("{}", num_as_roman(17292));
+    println!("{}", count_bits(10));
 }
 
 // Codewars Kata's for leaning rust.
-//
+
+// Count the 1's in binary representation of number.
+fn count_bits(mut n: i64) -> u32 {
+    // n.count_ones()
+    let mut counter: u32 = 0;
+
+    while n != 0 {
+        if n % 2 == 1 {
+            counter += 1;
+        }
+        n /= 2;
+    }
+
+    counter
+}
+
 // Remove first and last character.
 fn remove_char(s: &str) -> String {
     s[1..s.len() - 1].to_string()
