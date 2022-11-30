@@ -1,7 +1,7 @@
-use std::fmt::format;
+use std::{fmt::format, ops::Add};
 
 fn main() {
-    println!("{}", check_for_factor(9, 2));
+    println!("{}", num_as_roman(17292));
 }
 
 // Codewars Kata's for leaning rust.
@@ -67,4 +67,61 @@ fn greet(name: &str) -> String {
 // Test if the factor is a factor of base.
 fn check_for_factor(base: i32, factor: i32) -> bool {
     base % factor == 0
+}
+
+// Return Roman Numeral representation of given integer.
+fn num_as_roman(num: i32) -> String {
+    let mut roman_number = String::from("");
+    let mut number = num;
+
+    while number != 0 {
+        if number >= 1000 {
+            roman_number.push('M');
+            number -= 1000;
+        } else if number >= 900 {
+            roman_number.push('C');
+            roman_number.push('M');
+            number -= 900;
+        } else if number >= 500 {
+            roman_number.push('D');
+            number -= 500;
+        } else if number >= 400 {
+            roman_number.push('C');
+            roman_number.push('D');
+            number -= 400;
+        } else if number >= 100 {
+            roman_number.push('C');
+            number -= 100;
+        } else if number >= 90 {
+            roman_number.push('X');
+            roman_number.push('C');
+            number -= 90;
+        } else if number >= 50 {
+            roman_number.push('L');
+            number -= 50;
+        } else if number >= 40 {
+            roman_number.push('X');
+            roman_number.push('L');
+            number -= 40;
+        } else if number >= 10 {
+            roman_number.push('X');
+            number -= 10;
+        } else if number >= 9 {
+            roman_number.push('I');
+            roman_number.push('X');
+            number -= 9;
+        } else if number >= 5 {
+            roman_number.push('V');
+            number -= 5;
+        } else if number >= 4 {
+            roman_number.push('I');
+            roman_number.push('V');
+            number -= 4;
+        } else if number >= 1 {
+            roman_number.push('I');
+            number -= 1;
+        }
+    }
+
+    roman_number
 }
