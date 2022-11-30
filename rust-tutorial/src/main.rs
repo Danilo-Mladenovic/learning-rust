@@ -2,9 +2,6 @@ use std::collections::HashMap;
 use std::{fmt::format, ops::Add};
 
 fn main() {
-    println!("{}", num_as_roman(4));
-    println!("{}", num_as_roman(49));
-    println!("{}", num_as_roman(782));
     println!("{}", num_as_roman(17292));
 }
 
@@ -107,3 +104,32 @@ fn num_as_roman(num: i32) -> String {
 
     roman_number
 }
+
+/*
+fn num_as_roman(mut num: i32) -> String {
+    let mut roman_number = String::from("");
+    let symbols = [
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I"),
+    ];
+    for &(n, symbol) in symbols.iter() {
+        while num >= n {
+            roman_number.push_str(symbol);
+            num -= n;
+        }
+    }
+
+    roman_number
+}
+*/
