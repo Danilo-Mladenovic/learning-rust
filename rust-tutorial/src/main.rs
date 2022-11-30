@@ -1,6 +1,10 @@
+use std::collections::HashMap;
 use std::{fmt::format, ops::Add};
 
 fn main() {
+    println!("{}", num_as_roman(4));
+    println!("{}", num_as_roman(49));
+    println!("{}", num_as_roman(782));
     println!("{}", num_as_roman(17292));
 }
 
@@ -73,53 +77,31 @@ fn check_for_factor(base: i32, factor: i32) -> bool {
 fn num_as_roman(num: i32) -> String {
     let mut roman_number = String::from("");
     let mut number = num;
+    let digits = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    let mut digit_to_char: HashMap<i32, &str> = HashMap::new();
+    digit_to_char.insert(1000, "M");
+    digit_to_char.insert(900, "CM");
+    digit_to_char.insert(500, "D");
+    digit_to_char.insert(400, "CD");
+    digit_to_char.insert(100, "C");
+    digit_to_char.insert(90, "XC");
+    digit_to_char.insert(50, "L");
+    digit_to_char.insert(40, "XL");
+    digit_to_char.insert(10, "X");
+    digit_to_char.insert(9, "IX");
+    digit_to_char.insert(5, "V");
+    digit_to_char.insert(4, "IV");
+    digit_to_char.insert(1, "I");
+    let mut what: &str;
 
     while number != 0 {
-        if number >= 1000 {
-            roman_number.push('M');
-            number -= 1000;
-        } else if number >= 900 {
-            roman_number.push('C');
-            roman_number.push('M');
-            number -= 900;
-        } else if number >= 500 {
-            roman_number.push('D');
-            number -= 500;
-        } else if number >= 400 {
-            roman_number.push('C');
-            roman_number.push('D');
-            number -= 400;
-        } else if number >= 100 {
-            roman_number.push('C');
-            number -= 100;
-        } else if number >= 90 {
-            roman_number.push('X');
-            roman_number.push('C');
-            number -= 90;
-        } else if number >= 50 {
-            roman_number.push('L');
-            number -= 50;
-        } else if number >= 40 {
-            roman_number.push('X');
-            roman_number.push('L');
-            number -= 40;
-        } else if number >= 10 {
-            roman_number.push('X');
-            number -= 10;
-        } else if number >= 9 {
-            roman_number.push('I');
-            roman_number.push('X');
-            number -= 9;
-        } else if number >= 5 {
-            roman_number.push('V');
-            number -= 5;
-        } else if number >= 4 {
-            roman_number.push('I');
-            roman_number.push('V');
-            number -= 4;
-        } else if number >= 1 {
-            roman_number.push('I');
-            number -= 1;
+        for digit in digits {
+            if number >= digit {
+                what = digit_to_char.get(&digit).unwrap();
+                roman_number.push_str(&what.to_string());
+                number -= digit;
+                break;
+            }
         }
     }
 
